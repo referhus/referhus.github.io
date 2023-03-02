@@ -1,2 +1,2 @@
 @echo off
-npm run build&&cd dist&&git init&&git add -A&&git commit -m 'deploy'&&git push -f https://github.com/bagus123/vue-gh-pages.git master:gh-pages&&cd ..
+npm run build&&cd dist&&git init&&git add -A&&git commit -m 'deploy'&&git push -f https://github.com/referhus/referhus.github.io main:gh-pages&&cd ...
