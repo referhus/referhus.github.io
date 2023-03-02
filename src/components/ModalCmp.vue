@@ -101,6 +101,7 @@
   font-size: 64px;
   font-weight: 500;
   position: relative;
+  background-size: 100%;
 }
 
 .modal-close {

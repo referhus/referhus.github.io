@@ -39,9 +39,7 @@
             class="t-code-fixed"
           ></task-item>
 
-          <div class="promo-wrap"
-            :style="tasks.textWidth.code.indexOf('width') > -1 ? tasks.textWidth.code : ''"
-          >
+          <div class="promo-wrap">
             <p 
               class="promo-text" 
               :style="tasks.textOpacity.code.indexOf('opacity') > -1 ? tasks.textOpacity.code : ''"
@@ -57,11 +55,6 @@
               @set-code="setCode"
               :item="tasks.textFont"
               class="t-code-text-font"
-            ></task-item>
-            <task-item
-              @set-code="setCode"
-              :item="tasks.textWidth"
-              class="t-code-text-width"
             ></task-item>
           </div>
         </div>
@@ -140,17 +133,11 @@
 
       <section class="modal-block">
         <div class="modal-button"
-          :style="tasks.cursor.code.indexOf('cursor') > -1 ? tasks.cursor.code : ''"
           @click="openModal()">
           <span>
             {{ textBtn }}
           </span>
         </div>
-        <task-item
-          @set-code="setCode"
-          :item="tasks.cursor"
-          class="t-code-cursor"
-        ></task-item>
         <task-item
           v-if="!firstClick"
           @set-code="setCode"
@@ -218,16 +205,10 @@ import ModalCmp from './components/ModalCmp.vue'
             help: 'font-family: "Source Code Pro"',
             code: ''
           },
-          textWidth: {
-            name: 'textWidth',
-            task: 'Ширина блока с текстом больше, чем нужно. Давай поправим в соответствии с макетом',
-            help: 'width: 1172px или max-width: 1172px"',
-            code: ''
-          },
           backgroundColor: {
             name: 'backgroundColor',
-            task: 'Кажется, цвет фона тоже не соответствует макету. Исправим?',
-            help: 'background-color: #000000',
+            task: 'Кажется, цвет фона тоже не соответствует макету. Исправим на черный?',
+            help: 'background-color: #000000 или background-color: black',
             code: ''
           },
           paddingTop: {
@@ -264,12 +245,6 @@ import ModalCmp from './components/ModalCmp.vue'
             name: 'arrowShow',
             task: 'Тут должна быть стрелка! Где она? А в разметке есть. Может, изменим ей свойство display? Только не блочный и не строчный, прошу',
             help: 'display: inline-flex или display: flex',
-            code: ''
-          },
-          cursor: {
-            name: 'cursor',
-            task: 'Нужно заменить курсор на кнопке с дефолтного на pointer. Легко же звучит?',
-            help: 'cursor: pointer',
             code: ''
           },
           modal: {
@@ -480,7 +455,6 @@ import ModalCmp from './components/ModalCmp.vue'
   .t-code-fixed, 
   .t-code-text-opacity, 
   .t-code-text-font, 
-  .t-code-text-width, 
   .t-code-text-position, 
   .t-code-logo-center,
   .t-code-padding-top,
@@ -488,7 +462,6 @@ import ModalCmp from './components/ModalCmp.vue'
   .t-code-background-img,
   .t-code-border-radius,
   .t-code-arrow,
-  .t-code-cursor,
   .t-code-modal {
     position: absolute;
   }
@@ -500,11 +473,6 @@ import ModalCmp from './components/ModalCmp.vue'
 
   .t-code-text-font {
     top: 278px;
-    right: -80px;
-  }
-
-  .t-code-text-width {
-    top: 326px;
     right: -80px;
   }
 
@@ -548,11 +516,6 @@ import ModalCmp from './components/ModalCmp.vue'
     right: 80px;
   }
 
-  .t-code-cursor {
-    top: 10px;
-    left: 65%;
-  }
-
   .t-code-modal {
     top: 10px;
     left: calc(65% + 48px);
@@ -568,6 +531,7 @@ import ModalCmp from './components/ModalCmp.vue'
     min-height: 250px;
     border: 1px solid #F9F4DE;
     background: #fff;
+    margin-bottom: 100px;
   }
 
 </style>
