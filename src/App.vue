@@ -133,11 +133,17 @@
 
       <section class="modal-block">
         <div class="modal-button"
+          :style="tasks.cursor.code.indexOf('cursor') > -1 ? tasks.cursor.code : ''"
           @click="openModal()">
           <span>
             {{ textBtn }}
           </span>
         </div>
+        <task-item
+          @set-code="setCode"
+          :item="tasks.cursor"
+          class="t-code-cursor"
+        ></task-item>
         <task-item
           v-if="!firstClick"
           @set-code="setCode"
@@ -152,7 +158,20 @@
       ></modal-cmp>
 
       <section class="promo-wrap block">
-        <p>Создайте свой блок!</p>
+        <p>Cверстай сам </p>
+        <v-textarea
+          label="Введите html код"
+          filled
+          auto-grow
+          clearable
+          clear-icon="mdi-close-circle"
+          dark
+          v-model="block"
+        ></v-textarea>
+        <div class="block-html" v-html="block"></div>
+      </section>
+      <section class="promo-wrap block">
+        <p>Создай свой блок!</p>
         <v-textarea
           label="Введите html код"
           filled
@@ -183,8 +202,8 @@ import ModalCmp from './components/ModalCmp.vue'
       return {
         firstClick: true,
         html: '<p style="font-size: 20px; color: red; margin-left: 20px"> пример </p>',
-        css: '',
         textBtn: 'a нажми',
+        block: '<p style="font-size: 20px; color: red; margin-left: 40px"> здесь пишем html-код, а в атрибуте style у каждого тега - inline стили </p>',
         modal: false,
         tasks: {
           logoFixed: {
@@ -195,7 +214,7 @@ import ModalCmp from './components/ModalCmp.vue'
           },
           textOpacity: {
             name: 'textOpacity',
-            task: 'Кажется, текст слишком бледный... Измените прозрачность цвета',
+            task: 'Кажется, текст слишком бледный... Измени прозрачность цвета',
             help: 'opacity: 1',
             code: ''
           },
@@ -208,7 +227,7 @@ import ModalCmp from './components/ModalCmp.vue'
           backgroundColor: {
             name: 'backgroundColor',
             task: 'Кажется, цвет фона тоже не соответствует макету. Исправим на черный?',
-            help: 'background-color: #000000 или background-color: black',
+            help: 'background-color: #000000',
             code: ''
           },
           paddingTop: {
@@ -245,6 +264,12 @@ import ModalCmp from './components/ModalCmp.vue'
             name: 'arrowShow',
             task: 'Тут должна быть стрелка! Где она? А в разметке есть. Может, изменим ей свойство display? Только не блочный и не строчный, прошу',
             help: 'display: inline-flex или display: flex',
+            code: ''
+          },
+          cursor: {
+            name: 'cursor',
+            task: 'Нужно заменить курсор на кнопке с дефолтного на pointer. Легко же звучит?',
+            help: 'cursor: pointer',
             code: ''
           },
           modal: {
@@ -455,6 +480,7 @@ import ModalCmp from './components/ModalCmp.vue'
   .t-code-fixed, 
   .t-code-text-opacity, 
   .t-code-text-font, 
+  .t-code-text-width, 
   .t-code-text-position, 
   .t-code-logo-center,
   .t-code-padding-top,
@@ -462,6 +488,7 @@ import ModalCmp from './components/ModalCmp.vue'
   .t-code-background-img,
   .t-code-border-radius,
   .t-code-arrow,
+  .t-code-cursor,
   .t-code-modal {
     position: absolute;
   }
@@ -473,6 +500,11 @@ import ModalCmp from './components/ModalCmp.vue'
 
   .t-code-text-font {
     top: 278px;
+    right: -80px;
+  }
+
+  .t-code-text-width {
+    top: 326px;
     right: -80px;
   }
 
@@ -516,6 +548,11 @@ import ModalCmp from './components/ModalCmp.vue'
     right: 80px;
   }
 
+  .t-code-cursor {
+    top: 10px;
+    left: 65%;
+  }
+
   .t-code-modal {
     top: 10px;
     left: calc(65% + 48px);
@@ -531,7 +568,6 @@ import ModalCmp from './components/ModalCmp.vue'
     min-height: 250px;
     border: 1px solid #F9F4DE;
     background: #fff;
-    margin-bottom: 100px;
   }
 
 </style>
