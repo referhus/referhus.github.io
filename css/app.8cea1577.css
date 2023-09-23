@@ -30,7 +30,7 @@
   left: 0;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 10;
 }
 .overlay._show[data-v-3d1d601d] {
   display: flex !important;
