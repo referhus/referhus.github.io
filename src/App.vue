@@ -221,7 +221,7 @@
         ></task-item>
       </section>
       <modal-cmp
-        v-if="modal"
+        :class="[{ _show: modal }]"
         :dialog="modal"
         @closeModal="closeModal"
       ></modal-cmp>
@@ -343,8 +343,8 @@ export default {
         },
         modal: {
           name: "modal",
-          task: "Нужно кнопку починить, чтоб открылась модалка... Как быть?",
-          help: 'Это пока слишком сложно для тебя, поэтому пока просто введи "Откройся"',
+          task: "!!!сложное задание (c js). Нужно кнопку починить, чтоб открылась модалка... Как быть? Нужно к блоку с классом overlay добавить класс _show",
+          help: 'Это пока слишком сложно, поэтому просто введи "Откройся". А еще можно с помощью JS: document.querySelector(".overlay").classList.add("_show")',
           code: "",
         },
       },
@@ -370,6 +370,11 @@ export default {
 
       if (el.item === "modal" && el.code.toLowerCase() === "откройся") {
         this.textBtn = "а вот щас?";
+      } else if (
+        el.item === "modal" &&
+        el.code === 'document.querySelector(".overlay").classList.add("_show")'
+      ) {
+        this.modal = true;
       }
     },
     openModal() {
@@ -385,6 +390,17 @@ export default {
     closeModal() {
       this.modal = false;
     },
+  },
+
+  mounted() {
+    const observer = new MutationObserver(([entry]) => {
+      entry.oldValue === "overlay" && (this.modal = true);
+    });
+
+    observer.observe(document.querySelector(".overlay"), {
+      attributes: true,
+      attributeOldValue: true,
+    });
   },
 };
 </script>
