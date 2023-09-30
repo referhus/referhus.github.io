@@ -458,7 +458,7 @@ header {
   max-width: 780px;
   width: 100%;
   text-align: center;
-  font-size: 80px;
+  font-size: 59px;
 }
 
 .promo-wrap p {
