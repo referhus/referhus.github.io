@@ -1,0 +1,150 @@
+* 
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    text-decoration: none
+
+body
+    font-family: 'Fira Code', monospace
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    background: #010C15
+
+#root
+    max-width: 1800px
+    width: 100%
+    margin: 0 auto
+    padding: 20px
+
+.container
+    border-radius: 8px
+    border: 1px solid #1E2D3D
+    background: #011627
+
+    &-grid
+        display: grid
+        grid-template-columns: 220px 1fr 1fr
+        height: 100%
+
+.default-item
+    padding: 20px
+    color: #607B96
+    font-size: 16px
+    font-weight: 400
+    line-height: 14px
+    border-right: 1px solid #1E2D3D
+    display: flex
+    align-items: center
+    gap: 5px
+
+    &:last-child
+        margin-left: auto
+        border-right: none
+        border-left: 1px solid #1E2D3D
+        
+    svg 
+        width: 24px
+        height: 24px
+
+        svg path
+            transition: .3s
+
+.nav-item 
+    cursor: pointer
+    transition: .3s
+    border-bottom: 2px solid transparent
+
+    &:hover
+        color: white
+        svg path
+            fill: #fff
+
+.flex-center 
+    display: flex
+    align-items: center
+
+.main 
+    &-default 
+        height: calc(100vh - 54px - 113px)
+        color: #E5E9F0
+        font-size: 18px
+        font-weight: 400
+    
+.title
+    font-size: 62px
+    font-weight: 400
+
+.home
+    justify-content: center
+    gap: 80px
+    padding: 50px 100px
+    background-image: url("assets/bg.png")
+    background-size: 50%
+    background-repeat: no-repeat
+    background-position: right
+
+    & .post 
+        color: #4D5BCE
+        font-size: 32px
+        font-weight: 400
+
+.aside
+    border-right: 1px solid #1E2D3D
+    .default-item 
+        i 
+            margin-right: 10px
+        &.active 
+            color: white
+        &:last-child
+            border-bottom: 1px solid #1E2D3D
+    &-head 
+        color: white
+        border-bottom: 1px solid #1E2D3D
+
+.content 
+    padding: 20px 30px     
+    display: flex
+    color: #607B96
+    font-size: 18px
+    font-weight: 450
+    line-height: 150%
+
+    &:last-child
+        border-left: 1px solid #1E2D3D
+
+.count 
+    writing-mode: vertical-lr 
+    text-orientation: upright
+    margin-top: 3px
+
+.bio 
+    color: #E99287
+
+.interests 
+    color: #43D9AD
+
+.education 
+    color: #3A49A4
+    
+.arrow 
+    color: #607B96
+
+
+.item-enter 
+  opacity: 0
+
+.item-enter-active 
+  opacity: 1
+  transition: opacity 500ms ease-in
+
+.item-exit 
+  opacity: 1
+
+.item-exit-active 
+  opacity: 0
+  transition: opacity 500ms ease-in
+
+img
+  height: 100%
+  width: 100%
+  object-fit: contain
