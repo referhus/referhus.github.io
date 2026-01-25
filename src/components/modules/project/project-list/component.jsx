@@ -11,9 +11,9 @@ export const ProjectList = (props) => {
 
   return (
     <div className="project-list">
-      {props.items.map((project) => {
+      {props.items.map(function (project) {
         if (hasFilteredElements(project.stack, list) || !list.length) {
-          return (<ProjectCard {...project} key={project.link}/>)
+          return <ProjectCard {...project} key={project.link}/>
         }
       }
       )}
