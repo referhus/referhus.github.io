@@ -11,7 +11,7 @@ export const ProjectList = (props) => {
 
   const filteredProjectList = props.items.filter((project) => {
     if (hasFilteredElements(project.stack, list) || !list.length) {
-      <ProjectCard {...project} key={project.link}/>
+      return <ProjectCard {...project} key={project.link}/>
     }
   })
 
