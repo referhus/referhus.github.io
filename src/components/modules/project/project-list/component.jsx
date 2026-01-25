@@ -9,14 +9,15 @@ export const ProjectList = (props) => {
 
   const hasFilteredElements = (arr1, arr2) => arr1.some(item => arr2.includes(item))
 
-  return (
+  const filteredProjectList = props.items.filter((project) => {
+    if (hasFilteredElements(project.stack, list) || !list.length) {
+      <ProjectCard {...project} key={project.link}/>
+    }
+  })
+
+    return (
     <div className="project-list">
-      {props.items.map(function (project) {
-        if (hasFilteredElements(project.stack, list) || !list.length) {
-          return <ProjectCard {...project} key={project.link}/>
-        }
-      }
-      )}
+      {filteredProjectList}
     </div>
   )
 }
