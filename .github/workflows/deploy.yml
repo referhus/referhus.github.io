@@ -27,6 +27,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Prepare for GitHub Pages
+        run: |
+          cd build
+          cp index.html 404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
@@ -34,11 +39,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
-
-      - name: Prepare for GitHub Pages
-        run: | 
-          cd build
-          cp index.html 404.html
 
       - name: Deploy to GitHub Pages
         id: deployment
