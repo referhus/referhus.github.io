@@ -35,6 +35,11 @@ jobs:
         with:
           path: './build'
 
+      - name: Prepare for GitHub Pages
+        run: | 
+          cd build
+          cp index.html 404.html
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
