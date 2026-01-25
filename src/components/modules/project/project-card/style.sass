@@ -1,0 +1,76 @@
+.project-card
+  position: relative
+  display: flex
+  gap: 10px
+  border-radius: 12px
+  border: 1px solid #1E2D3D
+  cursor: pointer
+  transition: all .2s ease-in-out
+
+  @media (hover: hover) and (min-width: 768px)
+    &:hover
+      border-color: #fff
+
+  @media (max-width: 768px)
+    flex-direction: column
+    gap: 0
+
+  &__img
+    position: relative
+    flex-shrink: 0
+    width: 215px
+
+    @media (max-width: 768px)
+      width: 100%
+
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      vertical-align: bottom
+      border-radius: 12px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: rgba(0, 0, 0, 0.3)
+      border-radius: 12px
+
+  &__content
+    display: flex
+    flex-direction: column
+    gap: 10px
+    padding: 10px
+
+  &__text,
+  &__date
+    color: #607B96
+
+  &__badges
+    display: flex
+    gap: 5px
+    flex-wrap: wrap
+    padding-right: 30px
+
+    @media (max-width: 768px)
+      position: absolute
+      top: 10px
+      left: 10px
+      width: calc(100% - 20px)
+
+  &__repo
+    position: absolute
+    top: 10px
+    right: 10px
+
+    @media (hover: hover) and (min-width: 768px)
+      &:hover
+        path
+          fill: var(--white-color)
+
+  &__date
+    margin-left: auto

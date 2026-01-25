@@ -3,9 +3,9 @@ import {
     Routes
 } from 'react-router-dom';
 
-import { Home } from '../views/home'
-import { About } from '../views/about'
-import { Projects } from '../views/projects';
+import { Home } from '../views/home/home'
+import { About } from '../views/about/about'
+import { Projects } from '../views/projects/projects';
 
 const routes = [
     {

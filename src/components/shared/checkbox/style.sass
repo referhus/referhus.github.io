@@ -1,0 +1,42 @@
+.checkbox-button
+  position: relative
+  display: flex
+  gap: 8px
+  max-width: max-content
+  cursor: pointer
+
+  &__label
+    word-break: break-word
+
+  &__element
+    flex-shrink: 0
+    width: 20px
+    display: flex
+    border-radius: 4px
+    background: transparent
+    border: 2px solid #1E2D3D
+
+    input
+      position: absolute !important
+      width: 1px !important
+      height: 1px !important
+      padding: 0 !important
+      margin: -1px !important
+      overflow: hidden !important
+      clip: rect(0, 0, 0, 0) !important
+      white-space: nowrap !important
+      border: 0 !important
+
+  &__icon
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: auto
+    opacity: 0
+
+  &.checked
+    .checkbox-button__icon
+      opacity: 1
+
+    .checkbox-button__label
+      color: #fff

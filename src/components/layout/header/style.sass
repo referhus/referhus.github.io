@@ -1,0 +1,31 @@
+.header
+  border-bottom: 1px solid #1E2D3D
+
+  @media (max-width: 768px)
+    justify-content: space-between
+
+  &-nav
+    width: 100%
+    display: flex
+
+    @media (max-width: 768px)
+      display: none
+
+  .nav-item
+    &.active
+      color: #fff
+      border-bottom-color: #FEA55F
+
+      svg path
+        fill: #fff
+
+  &-name
+    max-width: 220px
+    width: 100%
+    gap: 10px
+
+    @media (max-width: 768px)
+      border: none
+
+
+

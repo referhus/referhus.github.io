@@ -1,5 +1,5 @@
-import { Header } from "./components/header/component";
-import { Footer } from "./components/footer/component";
+import { Header } from "./components/layout/header/component";
+import { Footer } from "./components/layout/footer/component";
 import { RouterView } from "./router/index";
 import { BrowserRouter as Router } from 'react-router-dom';
 
