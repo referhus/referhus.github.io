@@ -128,9 +128,11 @@ body
 
 .aside
   border-right: 1px solid var(--stroke-color)
+  overflow: auto
 
   @media (max-width: 768px)
     border-right: none
+    overflow: visible
 
   .default-item
     @media (max-width: 768px)
@@ -152,21 +154,24 @@ body
 
 
 .content 
-    padding: 20px 30px     
-    display: flex
-    color: var(--text-color)
-    font-size: 18px
-    font-weight: 450
-    line-height: 150%
+  padding: 20px 30px
+  display: flex
+  color: var(--text-color)
+  font-size: 18px
+  font-weight: 450
+  line-height: 150%
+  overflow: hidden
+
+  & > span
     overflow: auto
 
-    &:last-child
-        border-left: 1px solid var(--stroke-color)
+  @media (max-width: 768px)
+    font-size: 16px
+    padding: 20px
+    overflow: visible
 
-    @media (max-width: 768px)
+    & > span
       overflow: visible
-      font-size: 16px
-      padding: 20px
 
 .count 
   writing-mode: vertical-lr
@@ -178,6 +183,9 @@ body
 
 .interests 
   color: #43D9AD
+
+.soft-skills
+  color: #FEA55F
 
 .education 
   color: #3A49A4

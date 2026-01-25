@@ -18,19 +18,18 @@ const socialItems = social.map(function(item, key) {
   const IconComponent = item.icon
 
   if (item.text) {
-        return (
-            <a href={item.link} className="default-item nav-item with-icon" key={key}>
-                <span>{item.text}</span>
-                <IconComponent />
-            </a>
-        )
+      return (
+        <a href={item.link} className="default-item nav-item with-icon" key={key}>
+          <span>{item.text}</span>
+          <IconComponent />
+        </a>
+      )
     } else {
-        return (
-            <a href={item.link} className="default-item nav-item" key={key}>
-                <IconComponent />
-            </a>
-        )
-
+      return (
+        <a href={item.link} className="default-item nav-item no-text" key={key}>
+            <IconComponent />
+        </a>
+      )
     }
 })
 

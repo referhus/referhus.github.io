@@ -13,6 +13,8 @@
       background: var(--stroke-color)
 
   .default-item
+    border-right: none
+
     @media (max-width: 768px)
       padding: 5px 20px
       line-height: 16px
@@ -26,9 +28,6 @@
     .collapsible-header
       color: var(--white-color)
 
-      &:last-child
-        border-bottom: 1px solid var(--stroke-color)
-
       i
         transform: rotate(180deg)
 
@@ -37,3 +36,11 @@
 
       @media (max-width: 768px)
         margin: 10px 0
+
+      &:last-of-type
+        border-bottom: 1px solid var(--stroke-color)
+
+        @media (max-width: 768px)
+          border-bottom: none
+
+
