@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: 'Сайт-визитка',
+    title: 'Сайт-визитка с автодеплоем в Github Actions',
     link: '/',
     img: '/images/projects/visit-bg.jpg',
     stack: ['React', 'SASS'],
