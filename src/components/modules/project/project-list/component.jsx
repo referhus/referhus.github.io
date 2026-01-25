@@ -16,8 +16,8 @@ export const ProjectList = (props) => {
   })
 
     return (
-    <div className="project-list">
-      {filteredProjectList}
-    </div>
-  )
+      <div className="project-list">
+        {filteredProjectList}
+      </div>
+    )
 }
