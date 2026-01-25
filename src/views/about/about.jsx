@@ -26,8 +26,8 @@ export const About = () => {
     )
 
     const tabsContent = tabs.map((item, key) => 
-        <span key={key} dangerouslySetInnerHTML={{__html: item.content}}> 
-        </span>
+        <div key={key} dangerouslySetInnerHTML={{__html: item.content}}>
+        </div>
     )
 
     return (
