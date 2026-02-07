@@ -3,7 +3,7 @@ import { useState, useRef, useCallback } from 'react';
 export function useCounter(options = {}) {
   const {
     initialValue = 0,
-    duration = 500,
+    duration = 300,
     precision = 0
   } = options;
 
@@ -43,36 +43,22 @@ export function useCounter(options = {}) {
         ? Math.floor(currentValue)
         : Number(currentValue.toFixed(precision));
 
-      setCount(roundedValue);
+      setCount(Math.max(0, roundedValue));
 
       if (progress < 1) {
         animationRef.current = requestAnimationFrame(animate);
       } else {
-        setIsCounting(false);
+        setIsCounting(true);
       }
     };
 
     animationRef.current = requestAnimationFrame(animate);
   }, [count, duration, isCounting, precision]);
 
-  const stop = useCallback(() => {
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      setIsCounting(false);
-    }
-  }, []);
-
-  const reset = useCallback((value = initialValue) => {
-    stop();
-    setCount(value);
-  }, [initialValue, stop]);
-
   return {
     count,
     isCounting,
     countTo,
-    stop,
-    reset,
     setCount
   };
 }

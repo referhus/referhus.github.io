@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: 'API для счетчика посещений с автодеплоем на Vercel',
+    link: 'https://visits-api.vercel.app/visits',
+    img: '/images/projects/api-visits-bg.jpg',
+    stack: ['NestJs', 'TypeScript'],
+    repo: 'https://github.com/referhus/visits-api',
+    date: 2026
+  },
+  {
     title: 'Сайт-визитка с автодеплоем в Github Actions',
     link: '/',
     img: '/images/projects/visit-bg.jpg',

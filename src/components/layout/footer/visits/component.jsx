@@ -10,17 +10,20 @@ export const Visits = () => {
 
   const { count, countTo } = useCounter()
 
-  useEffect(() => {
+  useEffect(async () => {
     const loadData = async () => {
       await getData()
       setDataLoaded(true)
     }
-    loadData()
+    await loadData()
   }, [])
 
   useEffect(() => {
     if (dataLoaded && total !== undefined && total !== null) {
-      countTo(total)
+      const target = Math.max(0, Math.floor(Number(total)))
+
+      console.log(target)
+      countTo(target)
     }
   }, [dataLoaded, total, countTo])
 
