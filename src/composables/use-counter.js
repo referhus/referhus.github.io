@@ -1,10 +1,9 @@
-import { useState, useRef, useCallback } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 export function useCounter(options = {}) {
   const {
     initialValue = 0,
     duration = 300,
-    precision = 0
   } = options;
 
   const [count, setCount] = useState(initialValue);
@@ -29,14 +28,11 @@ export function useCounter(options = {}) {
 
       const elapsed = currentTime - startTimeRef.current;
       const progress = Math.min(elapsed / customDuration, 1);
-      const easedProgress = () => (progress);
 
       const currentValue = startValueRef.current +
-        (targetValueRef.current - startValueRef.current) * easedProgress;
+        (targetValueRef.current - startValueRef.current) * progress;
 
-      const roundedValue = precision === 0
-        ? Math.floor(currentValue)
-        : Number(currentValue.toFixed(precision));
+      const roundedValue = Math.floor(currentValue)
 
       setCount(Math.max(0, roundedValue));
 
@@ -48,7 +44,7 @@ export function useCounter(options = {}) {
     };
 
     animationRef.current = requestAnimationFrame(animate);
-  }, [count, duration, isCounting, precision]);
+  }, [count, duration, isCounting]);
 
   return {
     count,
