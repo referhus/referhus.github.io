@@ -23,6 +23,8 @@ export const Visits = () => {
       const target = Math.max(0, Math.floor(Number(total)))
 
       countTo(target)
+
+      console.log(target)
     }
   }, [dataLoaded, total, countTo])
 
