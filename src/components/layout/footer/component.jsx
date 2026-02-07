@@ -31,7 +31,8 @@ export const Footer = () => {
 
   useEffect(() => {
     updateData();
-  }, [])
+  }, [updateData])
+
   return (
     <footer className="footer">
       <div className="default-item first-item">

@@ -22,7 +22,7 @@ export function createVisitsContext(getFunction, updateFunction) {
       } finally {
         setLoading(false);
       }
-    }, [getFunction]);
+    }, []);
 
     const updateData = useCallback(async (newItem) => {
       setLoading(true);
@@ -38,7 +38,7 @@ export function createVisitsContext(getFunction, updateFunction) {
       } finally {
         setLoading(false);
       }
-    }, [updateFunction]);
+    }, []);
 
     return (
       <Context.Provider value={{
