@@ -2,8 +2,6 @@
 import './style.sass'
 import { GithubIcon, TgIcon } from '../../shared/icons/component'
 import { Visits } from './visits/component'
-import { VisitsContext } from '../../../composables/data-controls/use-visits'
-import { useEffect } from 'react'
 
 const social = [
     {
@@ -27,12 +25,6 @@ const socialItems = social.map(function(item, key) {
 })
 
 export const Footer = () => {
-  const { updateData } = VisitsContext.useVisitsContext()
-
-  useEffect(() => {
-    updateData();
-  }, [updateData])
-
   return (
     <footer className="footer">
       <div className="default-item first-item">

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 
-export function createVisitsContext(getFunction, updateFunction) {
+export function createVisitsContext(getFunction) {
   const Context = createContext(null);
 
   const Provider = ({ children, initialValue = 0 }) => {
@@ -24,29 +24,12 @@ export function createVisitsContext(getFunction, updateFunction) {
       }
     }, []);
 
-    const updateData = useCallback(async (newItem) => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const result = await updateFunction(newItem);
-        setData(result);
-        return result;
-      } catch (err) {
-        setError(err.message);
-        throw err;
-      } finally {
-        setLoading(false);
-      }
-    }, []);
-
     return (
       <Context.Provider value={{
         data,
         loading,
         error,
         getData,
-        updateData,
         setData
       }}>
         {children}
