@@ -26,7 +26,7 @@ export const Visits = () => {
 
       console.log(count)
     }
-  }, [dataLoaded, total, countTo])
+  }, [dataLoaded, total, count, countTo])
 
   return (
     <div className="visits default-item">
