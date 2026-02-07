@@ -14,11 +14,6 @@ export function useCounter(options = {}) {
   const startValueRef = useRef(initialValue);
   const targetValueRef = useRef(initialValue);
 
-  const easingFunction = {
-    linear: (t) => t,
-  };
-
-
   const countTo = useCallback((target, customDuration = duration) => {
     if (isCounting) {
       cancelAnimationFrame(animationRef.current);
@@ -34,7 +29,7 @@ export function useCounter(options = {}) {
 
       const elapsed = currentTime - startTimeRef.current;
       const progress = Math.min(elapsed / customDuration, 1);
-      const easedProgress = easingFunction.linear(progress);
+      const easedProgress = () => (progress);
 
       const currentValue = startValueRef.current +
         (targetValueRef.current - startValueRef.current) * easedProgress;
@@ -53,7 +48,7 @@ export function useCounter(options = {}) {
     };
 
     animationRef.current = requestAnimationFrame(animate);
-  }, [count, duration, isCounting, easingFunction, precision]);
+  }, [count, duration, isCounting, precision]);
 
   return {
     count,
