@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: 'API для счетчика посещений с автодеплоем на Vercel',
+    title: 'API для счетчика посещений с БД на Firestore и автодеплоем на Vercel',
     link: 'https://visits-api.vercel.app/visits',
     img: '/images/projects/api-visits-bg.jpg',
     stack: ['NestJs', 'TypeScript'],
