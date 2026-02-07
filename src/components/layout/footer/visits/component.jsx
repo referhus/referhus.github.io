@@ -24,7 +24,7 @@ export const Visits = () => {
 
       countTo(target)
 
-      console.log(target)
+      console.log(count)
     }
   }, [dataLoaded, total, countTo])
 
