@@ -53,7 +53,7 @@ export function useCounter(options = {}) {
     };
 
     animationRef.current = requestAnimationFrame(animate);
-  }, [count, duration, isCounting, precision]);
+  }, [count, duration, isCounting, easingFunction, precision]);
 
   return {
     count,
