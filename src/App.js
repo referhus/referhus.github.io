@@ -2,6 +2,7 @@ import { Header } from "./components/layout/header/component";
 import { Footer } from "./components/layout/footer/component";
 import { RouterView } from "./router/index";
 import { BrowserRouter as Router } from 'react-router-dom';
+import { VisitsContext } from './composables/data-controls/use-visits'
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       <div className="container">
         <Header />
         <RouterView />
-        <Footer />
+        <VisitsContext.Provider>
+          <Footer />
+        </VisitsContext.Provider>
       </div>
     </Router>
   );

@@ -1,6 +1,9 @@
 
 import './style.sass'
 import { GithubIcon, TgIcon } from '../../shared/icons/component'
+import { Visits } from './visits/component'
+import { VisitsContext } from '../../../composables/data-controls/use-visits'
+import { useEffect } from 'react'
 
 const social = [
     {
@@ -10,36 +13,32 @@ const social = [
     {
         icon: GithubIcon,
         link: "https://github.com/referhus",
-        text: "@referhus"
     }
 ]
 
 const socialItems = social.map(function(item, key) {
   const IconComponent = item.icon
 
-  if (item.text) {
-      return (
-        <a href={item.link} className="default-item nav-item with-icon" key={key}>
-          <span>{item.text}</span>
-          <IconComponent />
-        </a>
-      )
-    } else {
-      return (
-        <a href={item.link} className="default-item nav-item no-text" key={key}>
-            <IconComponent />
-        </a>
-      )
-    }
+    return (
+      <a href={item.link} className="default-item nav-item" key={key}>
+        <IconComponent />
+      </a>
+    )
 })
 
 export const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="default-item first-item">
-                find me in:
-            </div>
-            {socialItems}
-        </footer>
-    )
+  const { updateData } = VisitsContext.useVisitsContext()
+
+  useEffect(() => {
+    updateData();
+  }, [])
+  return (
+    <footer className="footer">
+      <div className="default-item first-item">
+        find me in:
+      </div>
+      {socialItems}
+      <Visits />
+    </footer>
+  )
 }
